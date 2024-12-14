@@ -22,30 +22,19 @@ namespace Broadcasts
         public override void OnEnabled()
         {
             Exiled.Events.Handlers.Player.Verified += OnVerified;
-            base.OnEnabled();
-
             Exiled.Events.Handlers.Player.Escaping += OnEscape;
-            base.OnEnabled();
-
             Exiled.Events.Handlers.Player.Died += OnPlayerDead;
-            base.OnEnabled();
-
             Exiled.Events.Handlers.Server.RoundEnded += OnRoundEnd;
             base.OnEnabled();
         }
         public override void OnDisabled()
         {
             Exiled.Events.Handlers.Player.Verified -= OnVerified;
-            base.OnDisabled();
-
             Exiled.Events.Handlers.Player.Escaping += OnEscape;
-            base.OnDisabled();
-
             Exiled.Events.Handlers.Player.Died += OnPlayerDead;
-            base.OnDisabled();
-
             Exiled.Events.Handlers.Server.RoundEnded += OnRoundEnd;
             base.OnDisabled();
+
         }
         private void OnVerified(VerifiedEventArgs ev)
         {
@@ -74,8 +63,5 @@ namespace Broadcasts
         {
             Map.Broadcast(Config.Duration, Config.TextEndRound);
         }
-
-
-
     }
 }
